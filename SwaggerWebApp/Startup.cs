@@ -52,6 +52,10 @@ namespace SwaggerWebApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                });
             }
             else
             {
@@ -63,11 +67,6 @@ namespace SwaggerWebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
 
             app.UseRouting();
 
